@@ -5,6 +5,21 @@ function sortear() {
     ate = parseInt(document.getElementById("ate").value);
     // Utilizamos parseInt para converter os valores de string para números inteiros
     
+    while (isNaN(quantidade) || isNaN(de) || isNaN(ate)) {
+        alert("Por favor, preencha todos os campos com números válidos.");
+        return;
+    } // O loop while é utilizado para verificar se os valores inseridos pelo usuário são números válidos. A função isNaN() é usada para verificar se algum dos valores é "Not a Number" (NaN), o que indica que o usuário não inseriu um número válido. Se algum dos campos contiver um valor inválido, uma mensagem de alerta é exibida solicitando ao usuário que preencha os campos corretamente, e a função retorna, interrompendo a execução do código.
+
+    while (quantidade <= 0 || de < 0 || ate < 0) {
+        alert("Por favor, insira valores positivos para quantidade, de e até.");
+        return;
+    } // O segundo loop while é utilizado para garantir que os valores inseridos sejam positivos. Ele verifica se a quantidade é menor ou igual a zero, ou se os valores "de" e "até" são menores que zero. Se alguma dessas condições for verdadeira, uma mensagem de alerta é exibida solicitando ao usuário que insira valores positivos, e a função retorna, interrompendo a execução do código.
+
+    while (de >= ate) {
+        alert("O valor 'de' deve ser menor que o valor 'até'.");
+        return;
+    } // O terceiro loop while é utilizado para garantir que o valor "de" seja menor que o valor "até". Ele verifica se "de" é maior ou igual a "ate". Se essa condição for verdadeira, uma mensagem de alerta é exibida solicitando ao usuário que insira um valor "de" menor que "até", e a função retorna, interrompendo a execução do código.
+
     let sorteados = [];
     let numero;
     // Cria uma váriavel para armazenar os números sorteados
