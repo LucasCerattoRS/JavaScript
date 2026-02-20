@@ -14,7 +14,7 @@ function sortear() {
 
         while (sorteados.includes(numero)) {
             numero = obterNumeroAleatorio(de, ate);
-            // O loop while é utilizado para garantir que o número sorteado seja único, ou seja, que não tenha sido sorteado anteriormente. Ele verifica se o número já está presente no array "sorteados" usando o método includes(), e se estiver, gera um novo número aleatório até encontrar um número que ainda não tenha sido sorteado.
+            // O loop while é utilizado para garantir que o número sorteado seja único, ou seja, que não tenha sido sorteado anteriormente. Ele verifica se o número já está presente no array "sorteados" usando o método includes(), e se estiver, gera um novo número aleatório até encontrar um número que ainda não tenha sido sorteado.   
         }
         
         sorteados.push(numero);
@@ -22,8 +22,31 @@ function sortear() {
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados.join(", ")}</label>`;
     // O resultado é exibido em um elemento HTML com o id "resultado", onde os números sorteados são apresentados como uma string, separados por vírgulas, utilizando o método join() para formatar a saída.
-}
+    alterarStatusBotao();
+}   
 // A função "obterNumeroAleatorio" é responsável por gerar um número aleatório entre os valores "min" e "max" fornecidos como argumentos. Ela utiliza a função Math.random() para gerar um número decimal aleatório entre 0 (inclusive) e 1 (exclusivo), e depois o ajusta para o intervalo desejado usando a fórmula: Math.floor(Math.random() * (max - min + 1)) + min. O resultado é um número inteiro aleatório dentro do intervalo especificado.
     function obterNumeroAleatorio(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+
+function alterarStatusBotao() {
+    let botao = document.getElementById('btn-reiniciar');
+    // se tiver a classe "container__botao-desabilitado", ela é removida e a classe "container__botao" é adicionada, habilitando o botão. Caso contrário, nenhuma ação é realizada.
+    if (botao.classList.contains('container__botao-desabilitado')) {
+        botao.classList.remove('container__botao-desabilitado');
+        botao.classList.add('container__botao');
+    }
+    else {
+        botao.classList.remove('container__botao');
+        botao.classList.add('container__botao-desabilitado');
+    }
+}
+
+function reiniciar() {  
+    document.getElementById("quantidade").value = '';
+    document.getElementById("de").value = '';
+    document.getElementById("ate").value = '';
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';
+    alterarStatusBotao();
+}   
