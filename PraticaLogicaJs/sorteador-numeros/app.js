@@ -24,9 +24,10 @@ function sortear() {
     while (quantidade > (ate - de + 1)) {
         alert("A quantidade de números a serem sorteados é maior do que o intervalo disponível. Por favor, ajuste os valores.");
         return;
-    } // O quarto loop while é utilizado para garantir que a quantidade de números a serem sorteados não seja maior do que o intervalo disponível entre "de" e "até". Ele verifica se a quantidade é maior do que a diferença entre "ate" e "de" mais um (para incluir ambos os limites). Se essa condição for verdadeira, uma mensagem de alerta é exibida solicitando ao usuário que ajuste os valores, e a função retorna, interrompendo a execução do código.
+    }   // O quarto loop while é utilizado para garantir que a quantidade de números a serem sorteados não seja maior do que o intervalo disponível entre "de" e "até". Ele verifica se a quantidade é maior do que a diferença entre "ate" e "de" mais um (para incluir ambos os limites). Se essa condição for verdadeira, uma mensagem de alerta é exibida solicitando ao usuário que ajuste os valores, e a função retorna, interrompendo a execução do código.
     let sorteados = [];
     let numero;
+    // O array "sorteados" é criado para armazenar os números sorteados, e a variável "numero" é declarada para armazenar temporariamente cada número sorteado durante o processo.
     // Cria uma váriavel para armazenar os números sorteados
     // O laço for irá se repetir a quantidade de vezes definida pelo usuário, sorteando um número aleatório entre os valores "de" e "até" a cada iteração, e armazenando esses números no array "sorteados".
     for (let i = 0; i < quantidade; i++) {
@@ -38,6 +39,7 @@ function sortear() {
         }
         
         sorteados.push(numero);
+        // O número sorteado é adicionado ao array "sorteados" usando o método push(), garantindo que cada número sorteado seja armazenado para referência futura e para evitar repetições.
     }
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados.join(", ")}</label>`;
