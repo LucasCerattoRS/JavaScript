@@ -20,6 +20,11 @@ function sortear() {
         return;
     } // O terceiro loop while é utilizado para garantir que o valor "de" seja menor que o valor "até". Ele verifica se "de" é maior ou igual a "ate". Se essa condição for verdadeira, uma mensagem de alerta é exibida solicitando ao usuário que insira um valor "de" menor que "até", e a função retorna, interrompendo a execução do código.
 
+
+    while (quantidade > (ate - de + 1)) {
+        alert("A quantidade de números a serem sorteados é maior do que o intervalo disponível. Por favor, ajuste os valores.");
+        return;
+    } // O quarto loop while é utilizado para garantir que a quantidade de números a serem sorteados não seja maior do que o intervalo disponível entre "de" e "até". Ele verifica se a quantidade é maior do que a diferença entre "ate" e "de" mais um (para incluir ambos os limites). Se essa condição for verdadeira, uma mensagem de alerta é exibida solicitando ao usuário que ajuste os valores, e a função retorna, interrompendo a execução do código.
     let sorteados = [];
     let numero;
     // Cria uma váriavel para armazenar os números sorteados
