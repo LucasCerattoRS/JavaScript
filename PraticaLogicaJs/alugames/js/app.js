@@ -19,6 +19,11 @@ function alterarStatus(id) {
     // 2. LÓGICA DE ALTERNÂNCIA (TOGGLE)
     // O classList.contains verifica se o botão tem a classe específica de "jogo alugado".
     if (botao.classList.contains('dashboard__item__button--return')) {
+
+        if (window.confirm("Você realmente quer devolver?") === false) {
+            return;
+        }
+
         
         // --- SE JÁ ESTIVER ALUGADO (Ação: Devolver) ---
         
@@ -30,9 +35,12 @@ function alterarStatus(id) {
         
         // Remove a classe que deixa a imagem do jogo escura
         caixaImagem.classList.remove("dashboard__item__img--rented");
-        
     } else {
         
+        if (window.confirm("Você realmente quer alugar?") === false) {
+            return;
+        }
+
         // --- SE ESTIVER DISPONÍVEL (Ação: Alugar) ---
         
         // Adiciona a classe que deixa o botão escuro (estilo de devolução)
@@ -43,5 +51,12 @@ function alterarStatus(id) {
         
         // Adiciona a classe que aplica o filtro escuro na imagem do jogo
         caixaImagem.classList.add("dashboard__item__img--rented");
+
     }
+ console.log(contarBotoesDevolver());
+}
+
+function contarBotoesDevolver() {
+    const botoesDevolver = document.querySelectorAll('.dashboard__item__button--return');
+    return botoesDevolver.length;
 }
