@@ -57,10 +57,11 @@ function alterarStatusBotao() {
     if (botao.classList.contains('container__botao-desabilitado')) {
         botao.classList.remove('container__botao-desabilitado');
         botao.classList.add('container__botao');
-    }
+    }   
     else {
         botao.classList.remove('container__botao');
         botao.classList.add('container__botao-desabilitado');
+        // O código dentro do bloco else é executado quando o botão já está habilitado. Ele remove a classe "container__botao" e adiciona a classe "container__botao-desabilitado", desabilitando o botão. Isso garante que o botão de reiniciar só esteja habilitado após um sorteio ter sido realizado, e seja desabilitado novamente após ser clicado para reiniciar o processo.
     }
 }
 
