@@ -12,6 +12,8 @@ function adicionar() {
     // Seleciona o elemento onde a lista de amigos será mostrada
     let lista = document.getElementById("lista-amigos");
 
+    
+
     // Cria um novo item de lista (<li>) na memória do navegador
     let item = document.createElement("li");
     item.textContent = nome; // Define o texto do item como o nome digitado
