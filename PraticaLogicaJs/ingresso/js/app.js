@@ -15,7 +15,7 @@ function comprar() {
         alert("Por favor, selecione pelo menos um ingresso para calcular o valor total.");
         return;
     }
-
+    // Verifica se o tipo de ingresso selecionado pelo cliente é estritamente igual (===) a "pista".
     if (tipoIngresso === "pista") {
         // Variável para armazenar a quantidade de ingressos disponíveis
         // 1. Obter a quantidade de ingressos disponíveis para o tipo de ingresso selecionado usando o método getElementById() para acessar o elemento com o ID "qtd-pista" e o método textContent para obter seu conteúdo, que é então convertido em um número inteiro usando o método parseInt() e armazenado na variável quantidadePista.
