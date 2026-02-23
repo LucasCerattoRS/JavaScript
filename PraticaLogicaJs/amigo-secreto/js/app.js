@@ -12,7 +12,12 @@ function adicionar() {
     // Seleciona o elemento onde a lista de amigos será mostrada
     let lista = document.getElementById("lista-amigos");
 
-    
+    let amigos = Array.from(lista.children).map(item => item.textContent);
+    // Verifica se o nome já existe na lista para evitar duplicatas
+    if (amigos.some(amigo => amigo.toLowerCase() === nome.toLowerCase())) {
+        alert("Este nome já foi adicionado. Por favor, insira um nome diferente.");
+        return; // Interrompe a função se o nome já estiver na lista
+    }
 
     // Cria um novo item de lista (<li>) na memória do navegador
     let item = document.createElement("li");
