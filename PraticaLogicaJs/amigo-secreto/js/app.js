@@ -16,6 +16,13 @@ function adicionar() {
     let item = document.createElement("li");
     item.textContent = nome; // Define o texto do item como o nome digitado
 
+    item.onclick = function() {
+        // Confirmação para remover o amigo da lista
+        if (confirm("Deseja remover " + nome + " da lista?")) {
+            lista.removeChild(item); // Remove o item da lista no HTML
+        }
+        document.getElementById("lista-sorteio").innerHTML = ""; }
+
     // Adiciona o novo item criado dentro da lista no HTML
     lista.appendChild(item);
 
