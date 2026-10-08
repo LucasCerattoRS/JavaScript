@@ -41,13 +41,24 @@ O JavaScript, por si só, não entende cores ou botões, e o HTML não tem intel
 ### Estrutura de Pastas
 
 ```text
-/
-├── assets/
-│   └── css/
-│       └── style.css
-├── componentes/
-│   ├── concluitarefas.js   # Componente do botão de concluir
-│   └── deletatarefas.js    # Componente do botão de deletar
-├── index.html              # Estrutura principal
-├── listaDeTarefas.js       # Script principal de controle da lista
-└── README.md
+JVsDOM/
+├── README.md
+└── CEEP/
+    ├── assets/css/style.css
+    ├── componentes/
+    │   ├── concluitarefas.js   # Componente do botão de concluir
+    │   └── deletatarefas.js    # Componente do botão de deletar
+    ├── index.html              # Estrutura principal
+    └── main.js                 # Script principal: cria a tarefa e encaixa os botões
+```
+
+### Como rodar
+
+Por usar `<script type="module">`, o navegador **bloqueia** os `import` se você abrir o
+`index.html` com duplo clique (`file://`). Sirva a pasta por HTTP:
+
+```bash
+cd JVsDOM/CEEP
+python -m http.server 8000   # depois abra http://localhost:8000
+```
+(ou a extensão Live Server do VS Code)
