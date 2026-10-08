@@ -23,8 +23,13 @@ const criarTarefa = (evento) => {
     tarefa.classList.add('task');
 
     // Insere o texto digitado pelo usuário dentro da tag <p>
-    const conteudo = `<p class="content">${valor}</p>`;
-    tarefa.innerHTML = conteudo;
+    // CORREÇÃO (revisão 08/10/2026): antes era innerHTML com o texto do usuário,
+    // então digitar <img src=x onerror=alert(1)> executava código (XSS).
+    // textContent trata o valor sempre como texto puro.
+    const conteudo = document.createElement('p');
+    conteudo.classList.add('content');
+    conteudo.textContent = valor;
+    tarefa.appendChild(conteudo);
 
     // Anexa os botões criados nos outros arquivos dentro desta nova <li>
     tarefa.appendChild(BotaoConclui());
