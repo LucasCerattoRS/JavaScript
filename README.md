@@ -45,3 +45,10 @@ HTML5, CSS3, JavaScript (ES6+, módulos nativos). Sem dependências nem build.
    em cada botão. Tente um único listener na `<ul>` usando `evento.target.closest('li')`.
 4. **`localStorage`** — para as tarefas sobreviverem ao F5: salvar um array com `JSON.stringify` a cada
    mudança e recriar a lista no carregamento.
+
+## Testes
+
+`node --test tests/*.test.mjs` (Node 22+, sem dependências; usa um DOM falso mínimo). CI em
+`.github/workflows/test.yml`. Cobre: tarefa vazia/só espaços, HTML digitado como texto (regressão do
+XSS), limpar input + foco, alternar "done", deletar só o item clicado. Limites: DOM falso não valida
+CSS nem o HTML real; o listener de `click` (não `submit`) é testado como está.
