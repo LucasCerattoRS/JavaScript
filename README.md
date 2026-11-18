@@ -31,8 +31,6 @@ HTML5, CSS3, JavaScript (ES6+, módulos nativos). Sem dependências nem build.
 
 ## Pendências
 
-- `style.css` tem o bloco inicial (body, .app, .todo-list, .title, .form...) **duplicado**; inofensivo,
-  mas dá pra apagar a segunda cópia.
 - As tarefas somem ao recarregar a página (não há persistência).
 
 ## Para estudar
@@ -50,5 +48,6 @@ HTML5, CSS3, JavaScript (ES6+, módulos nativos). Sem dependências nem build.
 
 `node --test tests/*.test.mjs` (Node 22+, sem dependências; usa um DOM falso mínimo). CI em
 `.github/workflows/test.yml`. Cobre: tarefa vazia/só espaços, HTML digitado como texto (regressão do
-XSS), limpar input + foco, alternar "done", deletar só o item clicado. Limites: DOM falso não valida
-CSS nem o HTML real; o listener de `click` (não `submit`) é testado como está.
+XSS), limpar input + foco, alternar "done", deletar só o item clicado; no CSS (`tests/css.test.mjs`),
+seletor repetido, `sourceMappingURL` para arquivo inexistente e classe usada sem regra. Limites: nada
+confere a aparência (valores do CSS) nem o HTML real; o listener de `click` (não `submit`) é testado como está.
